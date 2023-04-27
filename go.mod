@@ -1,0 +1,13 @@
+module github.com/POMPOSAN/goneko
+
+go 1.19
+
+require (
+	github.com/PuerkitoBio/goquery v1.8.0
+	github.com/Yanisssssse/goneko v0.0.0-20230330123007-826e2f7f1178
+)
+
+require (
+	github.com/andybalholm/cascadia v1.3.1 // indirect
+	golang.org/x/net v0.0.0-20210916014120-12bc252f5db8 // indirect
+)

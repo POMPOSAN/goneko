@@ -14,7 +14,7 @@ type Result struct {
 	Magnet       string
 	ViewUrl      string
 	Size         string
-	TimeStamp    int
+	Timestamp    int
 	Seeders      int
 	Leechers     int
 	Completed    int
@@ -26,12 +26,12 @@ type details struct {
 	Information string
 	Description string
 	InfoHash    string
-	Comments    []*Comment
+	Comments    []*comment
 }
 
-type Comment struct {
+type comment struct {
 	Submitter string
-	TimeStamp int
+	Timestamp int
 	Content   string
 }
 
@@ -66,9 +66,9 @@ func (r *Result) GetDetails() error {
 	}
 
 	doc.Find("#collapse-comments").Children().Each(func(i int, s *goquery.Selection) {
-		c := &Comment{}
+		c := &comment{}
 		c.Submitter = s.Find(".col-md-2").Children().Children().First().Text()
-		c.TimeStamp, _ = strconv.Atoi(s.Find(".comment-details").Children().First().Children().First().AttrOr("data-timestamp", "0"))
+		c.Timestamp, _ = strconv.Atoi(s.Find(".comment-details").Children().First().Children().First().AttrOr("data-timestamp", "0"))
 		c.Content, _ = s.Find(".comment-content").Html()
 		r.Details.Comments = append(r.Details.Comments, c)
 	})

@@ -34,7 +34,7 @@ func parseTr(r *goquery.Selection) *Result {
 			res.Size = s.Text()
 		case 4:
 			ts, _ := s.Attr("data-timestamp")
-			res.TimeStamp, _ = strconv.Atoi(ts)
+			res.Timestamp, _ = strconv.Atoi(ts)
 		case 5:
 			res.Seeders, _ = strconv.Atoi(s.Text())
 		case 6:
